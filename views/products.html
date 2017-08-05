@@ -1,0 +1,37 @@
+
+<h2>Welcome To Our Shop !</h2>
+
+<div  ng-controller="productsController as productsCtrl">
+
+    <button class="btnShow" ng-click="productsCtrl.showHideProducts(isShowProducts)"><span>{{isShowProducts}} All Disks</span></button>
+
+    <div class="filterByCat" ng-show="isShowProducts=='Hide'">
+        <label class="labelCategories"> Filter by category:</label>
+        <select class="selectCategory" ng-model="selectedCategory" ng-options="x for x in categories" ng-change="filterByCategory()"> </select>
+        <label class="labelSortBy"> Sort by:</label>
+        <select class="selectCategory" ng-model="selectedSort" ng-options="x for x in sortOptions" ng-change="sortBy()"> </select>
+    </div>
+
+    <div class="left addToLeft" ng-repeat="rows in disksToShow" >
+
+        <a ng-click="productsCtrl.addToCart(rows)"><img class ="diskPic " ng-src="{{rows[4]}}" ng-show="rows[4]" /></a>
+        <div class="diskFont">{{rows[0]}}</div>
+        <div class="diskFont">{{rows[1]}}</div>
+        <div class="diskFont">{{rows[3]}}</div>
+        <div class="diskFont"> {{rows[2]}}{{currency}}</div>
+    </div>
+
+    <div class="recommendedDiv" ng-show="productsCtrl.userService.isLoggedIn">
+        <h2 class="clearForProducts" >Disks Recommended For You !</h2>
+
+        <button  class="btnShow" ng-click="productsCtrl.showHideRecommended(isShowRecommended)"><span>{{isShowRecommended}} Recommended Disks</span></button>
+
+        <div class="left addToLeft" ng-repeat="rows in recommendedDisks">
+            <a ng-click="productsCtrl.addToCart(rows)"><img class ="diskPic" ng-src="{{rows[4]}}" ng-show="rows[4]" /> </a>
+            <div class="diskFont" ng-repeat ="item in rows|limitTo:2" >{{item}}</div>
+            <div class="diskFont">{{rows[3]}}</div>
+            <div class="diskFont">{{rows[2]}}{{currency}}</div>
+
+        </div>
+    </div>
+</div>

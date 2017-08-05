@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>My Shop</title>
+    <script type="text/javascript" src="angularScripts/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="angularScripts/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="angularScripts/jquery-ui.css">
+    <script src="angularScripts/angular.js"></script>
+    <script src="app.js"></script>
+    <script type="text/javascript" src="angularScripts/angular-route.js"></script>
+    <script type="text/javascript" src="angularScripts/xml2json.js"></script>
+    <script type="text/javascript" src="angularScripts/angular-local-storage.js"></script>
+    <script type="text/javascript" src="angularScripts/angular-animate.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body >
+    <!------------- Header -------------> 
+        <div class="header">
+            <img src="images/diskLogo.png" alt="Gil-Sapir logo" class="logo">
+            <img src="images/myShop.png"  class="shopLogo">
+            <h3 class="students">Sapir shkedi<br>Gil rotem</h3>
+        </div>
+    <!------------- Other -------------> 
+
+    <div ng-controller="mainController as mainCtrl">
+        <ul id="menu-list" class="main-nav">
+                <li class="menuButton" id="menuHome"><a href="#/">Home</a></li>
+                <li class="menuButton" id="menuProducts" ><a href="#/products">Products</a></li>
+                <li class="menuButton" id="menuAbout"><a a href="#/about">About</a></li>
+                <li ng-hide="mainCtrl.userService.isLoggedIn" class="menuButton" id="menuRegister"><a a href="#/register">Register</a></li>
+                <li ng-hide="mainCtrl.userService.isLoggedIn" class="menuButton" id="menuLogin" ><a a href="#/login">Login</a></li>
+                <li ng-show="mainCtrl.userService.isLoggedIn" class="menuButton" id="menuHistory"><a a href="#/history">History</a></li>
+                <li ng-show="mainCtrl.userService.isLoggedIn" class="menuButton" id="menuLogOut"><a href="#/logout">Logout</a></li>
+                <li class="menuNameButton" >Hello: {{mainCtrl.userService.userName}}</li>
+                 <div class="lastL" ng-show="mainCtrl.userService.isLoggedIn">Last login: {{mainCtrl.userService.lastLogin}}</div>
+        </ul>
+        <div >
+           <a href="#/cart"><img class="cart" src="/images/cart.png" alt="cart" ng-show="mainCtrl.userService.isLoggedIn" ></a>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <main ng-view> </main>
+
+</body>
+</html>

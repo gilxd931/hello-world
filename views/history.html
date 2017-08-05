@@ -1,0 +1,14 @@
+<div ng-controller="historyController as historyCtrl">
+    <h2>Orders History !</h2>
+
+    <ul class="left" ng-repeat="rows in historyOrders " >
+        <li class="orderHistory">{{rows[0]}}</li>
+        <li class="orderHistory">{{rows[1]}}</li>
+        <li class="orderHistory">{{rows[2]}}{{rows[3]}}</li>
+
+        <div class="orderHistory"><a><button ng-click="historyCtrl.openDetails(rows)">More Details </button></a></div>
+    </ul>
+
+    <div id="dialog" title="Order info">
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div ng-controller="homeController as homeCtrl">
+    <h2>Top 5 Disks Of The Week !</h2>
+
+    <div class="left addToLeft" ng-repeat="rows in topDisks">
+       <a ng-click="homeCtrl.addToCart(rows)"> <img class ="diskPic" ng-src="{{rows[4]}}" ng-show="rows[4]" /></a>
+        <div class="diskFont" ng-repeat ="item in rows|limitTo:2" >{{item}}</div>
+        <div class="diskFont">{{rows[3]}}</div>
+        <div class="diskFont">{{rows[2]}}{{currency}}</div>
+    </div>
+
+    <div class="newMonthClass" ng-show=" homeCtrl.userService.isLoggedIn">
+        <h2 class="clearForProducts" >New Disks Of The Month !</h2>
+
+        <div class="left addToLeft" ng-repeat="rows in newMonthDisks" >
+                <a ng-click="homeCtrl.addToCart(rows)"><img class ="diskPic" ng-src="{{rows[4]}}" ng-show="rows[4]" /></a>
+                <div class="diskFont" ng-repeat ="item in rows|limitTo:2" >{{item}}</div>
+                <div class="diskFont">{{rows[3]}}</div>
+                <div class="diskFont"  >{{rows[2]}}{{currency}}</div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+

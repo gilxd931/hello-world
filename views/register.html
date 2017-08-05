@@ -1,0 +1,200 @@
+<h2>Register</h2>
+
+<div ng-controller="registerController as registerCtrl">
+
+    <div class="register-form">
+        <form name="registerForm" ng-submit="registerCtrl.clickRegister(registerForm.$valid)" novalidate>
+            <div class="form-group">
+                <label class="lableForm">Username</label>
+                <input type="text"
+                       ng-model="registerCtrl.user.username"
+                       ng-required="true"
+                       class="form-control"
+                       name="usernameInput"
+                       minlength="3"
+                       maxlength="8"
+                       placeholder="Enter Username"
+                       ng-pattern="/^[a-zA-Z]*$/">
+                <p ng-show="registerForm.usernameInput.$invalid && !registerForm.usernameInput.$pristine" class="help-block">username should be between 3 to 8 characters and only letters </p>
+            </div>
+
+
+            <div class="form-group">
+                <label class="lableForm">First Name</label>
+                <input type="text"
+                       ng-model="registerCtrl.user.firstName"
+                       ng-required="true"
+                       class="form-control"
+                       name="firstNameInput"
+                       minlength="1"
+                       maxlength="49"
+                       placeholder="Enter First Name"
+                       ng-pattern="/^[a-zA-Z]*$/">
+                <p ng-show="registerForm.firstNameInput.$invalid  && !registerForm.firstNameInput.$pristine" class="help-block">Invalid First Name </p>
+            </div>
+
+            <div class="form-group">
+                <label class="lableForm">Last Name</label>
+                <input type="text"
+                       ng-model="registerCtrl.user.lastName"
+                       ng-required="true"
+                       class="form-control"
+                       name="lastNameInput"
+                       minlength="1"
+                       maxlength="49"
+                       placeholder="Enter Last Name"
+                       ng-pattern="/^[a-zA-Z]*$/">
+                <p ng-show="registerForm.lastNameInput.$invalid && !registerForm.lastNameInput.$pristine" class="help-block">Invalid Last Name </p>
+            </div>
+
+            <div class="form-group">
+                <label class="lableForm">Email</label>
+                <input type="email"
+                       ng-model="registerCtrl.user.email"
+                       ng-required="true"
+                       class="form-control"
+                       name="emailInput"
+                       placeholder="Enter Email"
+                       maxlength="199"
+                >
+                <p ng-show="registerForm.emailInput.$invalid && !registerForm.emailInput.$pristine" class="help-block">Invalid Email </p>
+            </div>
+
+
+            <div class="form-group" ng-init="registerCtrl.getCountries()">
+                <label class="lableForm">Country:</label><br>
+                <select ng-model="registerCtrl.user.country"
+                        name = "countryInput"
+                        ng-required="true"
+                        ng-options="country.name for country in registerCtrl.countries track by country.name">
+                </select>
+                <p ng-show="registerForm.countryInput.$invalid && registerForm.countryInput.$pristine" class="help-block">country is required</p>
+            </div>
+
+
+            <div class="form-group">
+                <label class="lableForm">City</label>
+                <input type="text"
+                       ng-model="registerCtrl.user.city"
+                       ng-required="true"
+                       class="form-control"
+                       name="cityInput"
+                       minlength="1"
+                       maxlength="99"
+                       placeholder="Enter City"
+                       ng-pattern="/^[a-zA-Z]*$/">
+                <p ng-show="registerForm.cityInput.$invalid && !registerForm.cityInput.$pristine" class="help-block">Invalid City </p>
+            </div>
+
+            <div class="form-group">
+                <label class="lableForm">Address</label>
+                <input type="text"
+                       ng-model="registerCtrl.user.address"
+                       ng-required="true"
+                       class="form-control"
+                       name="addressInput"
+                       minlength="1"
+                       maxlength="199"
+                       placeholder="Enter Address"
+                       ng-pattern="/^[a-zA-Z0-9]*$/">
+                <p ng-show="registerForm.addressInput.$invalid && !registerForm.addressInput.$pristine" class="help-block">Invalid Address </p>
+            </div>
+
+            <div class="form-group">
+                <label class="lableForm">Answer to the next question for restore password: where were you born?</label>
+                <input type="text"
+                       ng-model="registerCtrl.user.restoreAnswer"
+                       ng-required="true"
+                       class="form-control"
+                       name="restoreAnswerInput"
+                       minlength="1"
+                       maxlength="250"
+                       placeholder="Enter Restore Answer"
+                >
+                <p ng-show="registerForm.restoreAnswer.$invalid && !registerForm.restoreAnswer.$pristine" class="help-block">Invalid Restore Answer </p>
+            </div>
+
+
+            <div class="form-group">
+                <label class="lableForm">Credit card number</label>
+                <input type="text"
+                       ng-model="registerCtrl.user.creditCardNumber"
+                       ng-required="true"
+                       class="form-control"
+                       name="creditCardNumberInput"
+                       minlength="1"
+                       maxlength="49"
+                       placeholder="Enter Credit Card Number"
+                       ng-pattern="/^[0-9]*$/"
+                >
+                <p ng-show="registerForm.creditCardNumberInput.$invalid && !registerForm.creditCardNumberInput.$pristine" class="help-block">Invalid Credit Card NumberInput </p>
+            </div>
+
+            <div class="form-group">
+                <label class="lableForm">Password</label>
+                <input type="password"
+                       ng-model="registerCtrl.user.password"
+                       ng-required="true"
+                       class="form-control"
+                       name="passwordInput"
+                       minlength="5"
+                       maxlength="10"
+                       placeholder="Enter Password"
+                       ng-pattern="/^[a-zA-Z0-9]*$/">
+                <p ng-show="registerForm.passwordInput.$invalid && !registerForm.passwordInput.$pristine" class="help-block">Password should be between 5 to 10 characters and only letters or only numbers or letters and numbers</p>
+            </div>
+
+
+
+
+            <div >
+                <label class="lableForm">Categories:</label>
+                <p>choose at least one category</p><br><br>
+
+                <input type="checkbox"
+                       ng-model="registerCtrl.pop"
+                       class="categoryInput"
+                       ng-required="!registerCtrl.hiphop && !registerCtrl.dance && !registerCtrl.rap &&!registerCtrl.rock"
+                       name="PopInput">
+                <label>Pop</label><br>
+
+                <input type="checkbox"
+                       ng-model="registerCtrl.hiphop"
+                       class="categoryInput"
+                       name="hiphopInput">
+                <label>Hip Hop</label><br>
+
+                <input type="checkbox"
+                       ng-model="registerCtrl.dance"
+                       class="categoryInput"
+                       name="danceInput">
+                <label>Dance</label><br>
+
+                <input type="checkbox"
+                       ng-model="registerCtrl.rap"
+                       class="categoryInput"
+                       name="rapInput">
+                <label>Rap</label><br>
+
+                <input type="checkbox"
+                       ng-model="registerCtrl.rock"
+                       class="categoryInput"
+                       name="rockInput">
+                <label>Rock</label>
+            </div>
+            <br><br>
+
+
+
+
+            <input type="submit"
+                   id="registerSubmit"
+                   value="Register"
+                   ng-disabled="registerForm.$invalid">
+        </form>
+        <div>
+            {{registerForm.errorMessage}}
+        </div>
+    </div>
+
+</div>

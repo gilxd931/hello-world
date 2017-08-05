@@ -1,0 +1,84 @@
+
+<h2>Login Page</h2>
+<div ng-controller="loginController as loginCtrl">
+    <div class="login-form" ng-show="loginCtrl.isShowForget==false">
+        <form name="loginForm" ng-submit="loginCtrl.login(loginForm.$valid)" novalidate>
+            <div class="form-group">
+                <label class="lableForm">Username</label>
+                <input type="text"
+                       ng-model="loginCtrl.user.username"
+                       ng-required="true"
+                       class="form-control"
+                       name="usernameInput"
+                       placeholder="Enter Username">
+                <p ng-show="loginForm.usernameInput.$invalid || loginForm.usernameInput.$pristine" class="help-block">username is required</p>
+
+            </div>
+            <div class="form-group">
+                <label class="lableForm">Password</label>
+                <input type="password"
+                       ng-model="loginCtrl.user.password"
+                       ng-required="true"
+                       class="form-control"
+                       name="passwordInput"
+                       placeholder="Enter Password"
+
+                >
+                <p ng-show="loginForm.passwordInput.$invalid || loginForm.passwordInput.$pristine" class="help-block">Password is required</p>
+            </div>
+
+            <input type="submit"
+                   id="submitLogin"
+                   value="Login"
+                   ng-disabled="loginForm.$invalid">
+        </form>
+        <div>
+            {{loginCtrl.errorMessage}}
+        </div>
+    </div>
+    <div class="login-form">
+
+        <div class="login-form" ng-show="loginCtrl.isShowForget">
+
+
+            <form name="forgetForm" ng-submit="loginCtrl.forget(forgetForm.$valid)" novalidate>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text"
+                           ng-model="loginCtrl.jsonForgetPass.username"
+                           ng-required="true"
+                           class="form-control"
+                           name="usernameInForgetInput"
+                           placeholder="Enter Username">
+                    <p ng-show="forgetForm.usernameInForgetInput.$invalid && !forgetForm.usernameInForgetInput.$pristine" class="help-block">username error</p>
+
+                </div>
+                <div class="form-group">
+                    <label>Answer Restore Question: where were you born?</label>
+                    <input type="text"
+                           ng-model="loginCtrl.jsonForgetPass.restoreAnswer"
+                           ng-required="true"
+                           class="form-control"
+                           name="answerInput"
+                           placeholder="Enter Answer">
+                    <p ng-show="forgetForm.answerInput.$invalid && !forgetForm.answerInput.$pristine" class="help-block">Answer error</p>
+                </div>
+
+                <input type="submit"
+                       id="submitForget"
+                       value="Get Password"
+                       ng-disabled="forgetForm.$invalid">
+            </form>
+
+
+        </div>
+    </div>
+    <div class="forgot-pass">
+        <a class="showForgetButton" ng-click="loginCtrl.showForget()">{{loginCtrl.isShowForgetString}}</a>
+    </div>
+
+
+
+</div>
+
+

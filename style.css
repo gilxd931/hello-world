@@ -1,0 +1,710 @@
+/*-----------------------------------------*/
+/* General */
+/*-----------------------------------------*/
+
+* {
+    font-family: sans-serif;
+}
+
+/*-----------------------------------------*/
+/* Headings */
+/*-----------------------------------------*/
+h1,
+h2,
+h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+h1,
+h3 {
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    width: 400px;
+    margin-left: 39%;
+}
+
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: "";
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+/*-----------------------------------------*/
+/* Main */
+/*-----------------------------------------*/
+
+.main_text {
+    
+    color: rgb(45, 35, 36);
+    float: left;
+}
+.score{
+    clear: both;
+}
+
+.input_text {
+    float: left;
+    margin-top: 19px;
+    margin-right: 20px;
+    padding-left: 5px;
+}
+
+/*-----------------------------------------*/
+/* Header */
+/*-----------------------------------------*/
+
+.logo {
+    height: 100px;
+    width: auto;
+    float: left;
+}
+
+/*-----------------------------------------*/
+/* Menu */
+/*-----------------------------------------*/
+
+
+
+.main-nav {
+    float: left;
+    list-style: none;
+    margin-bottom: 50px;
+    width: 98.8%;
+    height: 50px;
+    margin-top: 0;
+    padding-top: 20px;
+    margin-left: -8px;
+    background-color: #686868;
+
+}
+
+.main-nav li {
+    display: inline-block;
+    font-size: 26px;
+    color: white;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 3px 0;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 7px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 7px solid rgba(230, 126, 34, 0.8);
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 3px 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 7px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 7px solid rgba(230, 126, 34, 0.8);
+}
+
+li:not(:last-child) {
+    margin-right: 30px;
+}
+
+input {
+    border: none;
+    font-size: 20px;
+        width: 80px;
+}
+
+/*-----------------------------------------*/
+/* MORE */
+/*-----------------------------------------*/
+
+#game_page {
+    height: 1000px;
+    display: none;
+    margin-top: -100px;
+}
+
+canvas {
+    border: 1px solid rgba(230, 126, 34,1);
+}
+
+a:hover,
+a:active {
+    color: #e67e22;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #e67e22;
+    transition: border-bottom 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+/*-----------------------------------------*/
+/* Buttons */
+/*-----------------------------------------*/
+
+.btn:link,
+.btn:visited,
+input[type=submit]{
+    display: inline-block;
+    padding: 13px 32px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit]{
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #e67e22;
+    color: #e67e22;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active
+{
+    background-color: #cf6d17;
+}
+
+.btn-full:hover,
+.btn-full:active{
+    background-color: #cf6d17;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #cf6d17;
+    color: #fff;
+}
+
+/*-----------------------------------------*/
+/* FORM */
+/*-----------------------------------------*/
+
+form {
+    border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] , input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+input[type=number], select , input[type=range] {    
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=range]{
+    width: 42%;
+}
+/* Set a style for all buttons */
+button {
+    background-color: #e67e22;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #686868;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+    width: 30%;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+/*-----------------------------------*/
+
+
+
+/*-----------------------------------------*/
+/* FOOTER */
+/*-----------------------------------------*/
+
+footer {
+  right: 0;
+  left:0;
+  bottom: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  position: fixed;
+  width: 99%;
+  margin-left: -8px;
+}
+
+content {
+    position: absolute;
+}
+
+.header {
+    float: left;
+    background-color: rgba(230, 126, 34, 0.8);
+    width: 102%;
+    margin-top: -8px;
+    margin-left: -8px;
+    padding-top: 5px;
+}
+
+
+.main_menu {
+    float: left;
+    clear: both;
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+}
+
+#welcome_page {
+    clear: both;
+    display: none;
+    padding-left: 38%;
+    margin-top: -30px;
+}
+
+
+
+.content {
+    clear: both;
+    padding: 100px;
+}
+
+.canvasDiv {
+}
+
+#lblUser {
+    clear: both;
+    width: 400px;
+}
+
+.user_name_game {
+    float: left;
+    margin-left: 27.5%;
+    height: 45px;
+}
+
+.sites{
+    font-size: large;
+    font-family: sans-serif;
+}
+
+.our-sites{
+    margin-top: 8px;
+    font-family: Copperplate Gothic Light, sans-serif;
+    font-size: 22px;
+}
+
+.cartTotalCost{
+    font-weight: 700;
+    font-size: large;
+}
+
+#dob_id {
+    width: auto;
+}
+
+.students {
+    float: right;
+    padding-right: 50px;
+    padding-top: 10px;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+.menuButton {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.menuNameButton{
+    text-transform: uppercase;
+    color: #fff;
+    float: right;
+}
+
+.clearForProducts{
+    clear: both;
+    padding-top: 50px;
+}
+
+.form-group{
+    margin-top: 25px;
+}
+
+.lastL{
+    clear: both;
+    font-size: 16px;
+    color: white;
+    float: right;
+    margin-right: 3.3%;
+}
+
+
+.shopLogo {
+    height: 110px;
+    width: auto;
+    margin-left: 30%;
+}
+
+#signUp_page {
+    display: none;
+}
+
+#login_page {
+    display: none;
+}
+
+.welcome_text {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.game_params {
+    float: left;
+}
+
+.gameBoard {
+    clear: both;
+    text-align: center;
+}
+
+.game_input_params {
+    margin-left: 27.5%; 
+}
+
+.start_newGame_button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#menuLogout {
+    display: none;
+}
+
+.menuLogoutButton {
+    font-size: 20px;
+    color: #303030;
+    float: right;
+    margin-right: 40px;
+}
+
+#settings_page {
+    display: none;
+    height: 650px;
+}
+
+.dob {
+    width: 180px;
+}
+
+#datePicker {
+    width: 180px;
+    margin-top: 10px;
+}
+
+.left {
+    float: left;
+}
+
+.addToLeft{
+    height:480px;
+    width:207px;
+    margin-right: 50px;
+}
+
+.addToLeftt{
+    margin-bottom: 60px;
+}
+
+.smallB{
+    width: 101px;
+}
+
+.cartAdd{
+    height:540px;
+    width:207px;
+    margin-right: 50px;
+}
+.moreDetails{
+    bottom: 0px;
+
+}
+.selectCategory{
+    width: 120px;
+    margin-left: 10px;
+
+}
+
+.labelCategories{
+    color: #333333;
+    font-family:  Copperplate Gothic Light, sans-serif;
+    font-size: 20px;
+    margin-left: 34%;
+
+}
+
+.labelSortBy{
+    color: #333333;
+    font-family:  Copperplate Gothic Light, sans-serif;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.clear{
+    clear:both;
+}
+
+#submitLogin{
+    width: 180px;
+    margin-left: 46%;
+    margin-top: 10px;
+}
+
+.cart{
+    height:72px;
+    width:72px;
+    float: right;
+    margin-top: -30px;
+    margin-right: 10px;
+    clear: both;
+}
+.diskFont{
+    color: #333333;
+    font-family:  Copperplate Gothic Light, sans-serif;
+    font-size: 20px;
+    margin-left: 50px;
+    width: 207px;
+}
+
+
+.last{
+    clear: both;
+    color: #333333;
+    font-family:  Copperplate Gothic Light, sans-serif;
+    font-size: 20px;
+    margin-left: 50px;
+    width: 100px;
+    float: right;
+}
+
+#settingForNewGameForm {
+    text-align: center;
+}
+
+.titleForSettings {
+}
+
+#settingsTitle {
+    margin-bottom: 40px;
+}
+
+.showForgetButton{
+    margin-top:20px ;
+    width: 180px;
+
+}
+
+/*ANIMATIONS */
+
+/* The starting CSS styles for the enter animation */
+main.ng-enter {
+    transition:1s linear all; /* time from enter to end*/
+    opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+main.ng-enter.ng-enter-active {
+    opacity:1;
+}
+
+.diskPic{
+    margin: 50px auto;
+    width: 207px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 30px;
+    transition: all 0.8s ease-in-out;
+}
+
+.diskPic:hover{
+    transform: rotate(360deg);
+    border-radius: 50%;
+}
+
+.btnShow{
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+
+.btnShow span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btnShow span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: -2px;
+    transition: 0.5s;
+}
+
+.btnShow:hover span {
+    padding-right: 15px;
+}
+
+.btnShow:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.historyFont{
+    color: #333333;
+    font-size: 20px;
+    margin-left: 34%;
+    float: left;
+}
+
+.orderHistory{
+    font-family:  Copperplate Gothic Light, sans-serif;
+    font-size: 20px;
+    float: left;
+    clear: both;
+}
+
+.lastOrderHistory{
+    font-family:  Copperplate Gothic Light, sans-serif;
+    font-size: 20px;
+    float: left;
+    clear: both;
+}
+
+.ui-state-default, ui-button {
+    background:rgba(230, 126, 34, 0.8);
+    border: 1px solid rgba(230, 126, 34, 0.8);
+    color: #FFFFFF;
+    font-weight: bold;
+    z-index: -1;
+}
+
+.ui-widget-content{
+    font-size: 16px;
+    font-family:  Copperplate Gothic Light, sans-serif;
+    font-weight: 800;
+}
+
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
+    background-image: url(images/ui-icons_ef8c08_256x240.png);
+}
+.ui-widget-header .ui-icon {
+    background-image: url(images/ui-icons_ffffff_256x240.png);
+}
+
+.lableForm{
+    font-size: 25px;
+    margin-right:50px;
+}
+#registerSubmit{
+    width: 180px;
+    margin-left: 43%;
+    margin-top: 10px;
+}
+#submitForget{
+    width: 180px;
+    margin-left: 43%;
+    margin-top: 10px;
+}
+
+.forgot-pass{
+    margin-top: 30px;
+    font-size: large;
+    color:  rgba(230, 126, 34, 0.8);
+}

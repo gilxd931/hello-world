@@ -1,0 +1,37 @@
+<div ng-controller="cartController as cartCtrl">
+    <h2>Cart !</h2>
+
+    <div class="cartTotalCost">
+       Total Cost: {{cartCtrl.totalCost}}{{currency}}
+    </div>
+
+    <div class="left cartAdd addToLeftt" ng-repeat="rows in cartView">
+
+        <img class ="diskPic" ng-src="{{rows[4]}}" ng-show="rows[4]" />
+        <div class="diskFont" ng-repeat ="item in rows|limitTo:2" >{{item}}</div>
+        <div class="diskFont">{{rows[2]}}{{currency}}</div>
+        <div class="diskFont">{{rows[5]}}</div>
+
+        <div class="diskFont" ng-show="rows[0].length<18"><br></div>
+        <div class="diskFont" ng-show="rows[1].length<18"><br></div>
+        <div class ="diskFont" >
+            <button class="smallB" ng-click="cartCtrl.plus(rows)"><span>+</span></button>
+            <button class="smallB" ng-click="cartCtrl.minus(rows)"><span>-</span></button>
+        </div>
+
+        <div class="diskFont moreDetails"><a><button ng-click="cartCtrl.openDetails(rows)">More Details </button></a></div>
+
+    </div>
+
+
+
+    <div id="cartDialog" title="Disk Info">
+    </div>
+
+
+
+    <button class="btnShow" ng-click="cartCtrl.purchase()"><span> Purchase now</span></button>
+    <button class="btnShow" ng-click="cartCtrl.clear()"><span> Clear Cart</span></button>
+
+
+</div>
